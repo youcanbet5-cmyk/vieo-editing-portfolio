@@ -639,11 +639,17 @@
 
    .about-text p {
      margin-top: 32px;
-     color: var(--muted);
-     font-family: var(--font-serif);
-     font-style: italic;
-     font-size: clamp(16px, 1.5vw, 18px);
-     line-height: 1.8;
+     color: #bdbdbd;
+
+     font-family: var(--font-sans);
+     font-style: normal;
+
+
+     font-size: 17px;
+     line-height: 1.9;
+     letter-spacing: 0.3px;
+
+     max-width: 540px;
    }
 
    @media (min-width: 1024px) {
@@ -721,7 +727,8 @@
      column-gap: 24px;
      column-gap: 20px;
 
-
+     overflow-x: auto;
+     scroll-behavior: smooth
    }
 
    .work-card.landscape {
@@ -761,6 +768,7 @@
      overflow: hidden;
      background: var(--secondary);
      transition: transform .5s cubic-bezier(.2, .8, .2, 1);
+     margin-bottom: 24px;
 
    }
 

@@ -1,8 +1,7 @@
 services:
   - type: web
     name: video-editing-portfolio
-    env: python
     plan: free
     buildCommand: bash build.sh
     startCommand: gunicorn prtf.wsgi:application
-    pythonVersion: 3.11.9
+    runtime: python

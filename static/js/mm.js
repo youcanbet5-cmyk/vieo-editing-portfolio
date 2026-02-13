@@ -50,13 +50,18 @@ document.addEventListener("DOMContentLoaded", function () {
 
         tabs.forEach(t => t.classList.remove('active'));
         tab.classList.add('active');
-
         cards.forEach(card => {
-
-          card.style.display = "none";
 
           if (card.dataset.category === category) {
             card.style.display = "";
+
+            const video = card.querySelector("video");
+            if (video) {
+              video.load();   // force reload when shown
+            }
+
+          } else {
+            card.style.display = "none";
           }
 
         });
@@ -98,7 +103,8 @@ const serviceCards = document.querySelectorAll(".service-card");
 
 window.addEventListener("mousemove", (e) => {
 
-  cards.forEach(card => {
+  serviceCards.forEach(card => {
+
 
     const rect = card.getBoundingClientRect();
 
@@ -283,6 +289,32 @@ document.addEventListener("DOMContentLoaded", () => {
 
     });
 
+  });
+
+});
+document.addEventListener("DOMContentLoaded", () => {
+
+  const grid = document.getElementById("work-grid");
+
+  const prevBtn = document.querySelector(".nav-btn.outline");
+  const nextBtn = document.querySelector(".nav-btn.filled");
+
+  if (!grid || !prevBtn || !nextBtn) return;
+
+  const scrollAmount = 350; // adjust if needed
+
+  nextBtn.addEventListener("click", () => {
+    grid.scrollBy({
+      left: scrollAmount,
+      behavior: "smooth"
+    });
+  });
+
+  prevBtn.addEventListener("click", () => {
+    grid.scrollBy({
+      left: -scrollAmount,
+      behavior: "smooth"
+    });
   });
 
 });
